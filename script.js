@@ -1,9 +1,9 @@
 const randomNumber = getRandom(1, 101);
 // alert(randomNumber);
-const guesses = [];
 const guess = document.getElementById("guess");
 const submit = document.getElementById("submitButton");
 const form = document.getElementById("guessForm");
+let i = 10; // counter for max number of guesses allowed
 
 // Enter does nothing
 form.addEventListener("submit", e => {
@@ -60,18 +60,17 @@ function gameOver() {
 function getGuess() {
     const value = guess.value;
     guess.value = "";
-    if(!value || guesses.length > 10) alert("Please enter a valid guess!");
+    if(!value) alert("Please enter a valid guess!");
     else {
-        guesses.push(value);
+        i--; // Decrement counter
         let r = checkGuess(value);
-        if(r === true || guesses.length === 10) {
+        if(r === true || i === 0) {
             submit.disabled = true;
             guess.disabled = true;
             submit.removeEventListener("click", getGuess);
 
             // Game over guess is incorrect
             if(r === false) gameOver();
-
         }
     }
     guess.focus();

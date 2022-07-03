@@ -1,0 +1,27 @@
+html {
+    font-family: sans-serif;
+    margin: 150px;
+}
+
+input::-webkit-inner-spin-button, input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+p[id="prevGuesses"] {
+    display: none;
+}
+
+p[id="resultBanner"] {
+    display: none;
+    background-color: red;
+    color: white;
+    padding: 4px;
+}
+
+button[id="replayButton"] {
+    display: none;
+}
